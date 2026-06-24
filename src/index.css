@@ -202,3 +202,577 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     margin-bottom: 16px;
   }
 }
+
+/* ============================================
+   MANUAL MOBILE VIEW MODE (.mobile-view on <html>)
+   当用户手动切换到移动版时，强制应用移动端样式
+   ============================================ */
+
+html.mobile-view body {
+  font-size: 14px;
+}
+
+html.mobile-view .container {
+  max-width: 100% !important;
+  padding: 0 16px !important;
+}
+
+html.mobile-view .section-heading {
+  font-size: clamp(22px, 6vw, 32px) !important;
+  margin-bottom: 32px !important;
+}
+
+html.mobile-view .section-label {
+  margin-bottom: 14px !important;
+}
+
+html.mobile-view .section-label-text {
+  font-size: 10px !important;
+}
+
+/* 导航栏 */
+html.mobile-view .nav-container {
+  padding: 0 12px !important;
+  gap: 2px !important;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+html.mobile-view .nav-tab {
+  padding: 10px 12px !important;
+  white-space: nowrap;
+}
+
+html.mobile-view .nav-tab-num {
+  display: none !important;
+}
+
+html.mobile-view .nav-tab-label {
+  font-size: 11px !important;
+}
+
+/* Hero */
+html.mobile-view .hero {
+  min-height: auto !important;
+  padding: 60px 0 40px !important;
+}
+
+html.mobile-view .hero-content {
+  padding-top: 40px !important;
+  padding-bottom: 30px !important;
+}
+
+html.mobile-view .hero-brand {
+  font-size: clamp(28px, 11vw, 48px) !important;
+  margin-bottom: 16px !important;
+}
+
+html.mobile-view .hero-brand::before,
+html.mobile-view .hero-brand::after {
+  width: 18px !important;
+  height: 18px !important;
+}
+
+html.mobile-view .hero-brand-sub {
+  font-size: 0.32em !important;
+  margin-top: 4px !important;
+}
+
+html.mobile-view .hero-brand-jp {
+  font-size: 0.2em !important;
+}
+
+html.mobile-view .hero-sub {
+  font-size: 13px !important;
+  max-width: 100% !important;
+  padding-left: 10px !important;
+  margin-bottom: 24px !important;
+}
+
+html.mobile-view .hero-eyebrow {
+  font-size: 10px !important;
+  padding: 5px 12px !important;
+  margin-bottom: 20px !important;
+}
+
+html.mobile-view .hero-actions {
+  flex-direction: column !important;
+  align-items: stretch !important;
+  gap: 10px !important;
+}
+
+html.mobile-view .hero-btn,
+html.mobile-view .hero-btn-bili,
+html.mobile-view .hero-btn-ghost {
+  justify-content: center !important;
+  padding: 12px 16px !important;
+  font-size: 13px !important;
+}
+
+html.mobile-view .hero-scroll {
+  bottom: 16px !important;
+}
+
+html.mobile-view .hero-scroll-line {
+  height: 30px !important;
+}
+
+html.mobile-view .hero-signature-watermark {
+  display: none !important;
+}
+
+html.mobile-view .nav {
+  padding: 12px 0 !important;
+}
+
+html.mobile-view .nav-scrolled {
+  padding: 10px 0 !important;
+}
+
+html.mobile-view .nav-bili {
+  width: 32px !important;
+  height: 32px !important;
+}
+
+html.mobile-view .nav-cta {
+  padding: 7px 12px !important;
+  font-size: 11px !important;
+}
+
+/* About */
+html.mobile-view .about {
+  padding: 48px 0 !important;
+}
+
+html.mobile-view .about-grid {
+  grid-template-columns: 1fr !important;
+  gap: 28px !important;
+}
+
+html.mobile-view .about-left {
+  position: static !important;
+}
+
+html.mobile-view .about-avatar {
+  width: 100px !important;
+  height: 100px !important;
+  margin-bottom: 16px !important;
+}
+
+html.mobile-view .about-name {
+  font-size: 16px !important;
+}
+
+html.mobile-view .about-role {
+  font-size: 10px !important;
+}
+
+html.mobile-view .about-heading {
+  font-size: clamp(20px, 5vw, 28px) !important;
+  margin-bottom: 20px !important;
+}
+
+html.mobile-view .about-bio p {
+  font-size: 13px !important;
+  line-height: 1.7 !important;
+}
+
+html.mobile-view .about-skills {
+  gap: 5px !important;
+}
+
+html.mobile-view .about-skill {
+  padding: 5px 10px !important;
+  font-size: 10px !important;
+}
+
+html.mobile-view .about-stats {
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 14px !important;
+  margin-top: 40px !important;
+  padding-top: 30px !important;
+}
+
+html.mobile-view .about-stat-val {
+  font-size: 24px !important;
+}
+
+html.mobile-view .about-stat-label {
+  font-size: 9px !important;
+}
+
+/* Projects */
+html.mobile-view .projects {
+  padding: 48px 0 !important;
+}
+
+html.mobile-view .project {
+  padding: 24px 0 !important;
+}
+
+html.mobile-view .project:hover {
+  padding-left: 0 !important;
+}
+
+html.mobile-view .project-head {
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 6px !important;
+  margin-bottom: 14px !important;
+}
+
+html.mobile-view .project-title {
+  font-size: 16px !important;
+}
+
+html.mobile-view .project-sub {
+  font-size: 9px !important;
+}
+
+html.mobile-view .project-desc {
+  font-size: 12px !important;
+  line-height: 1.65 !important;
+}
+
+html.mobile-view .project-tags {
+  gap: 4px !important;
+}
+
+html.mobile-view .project-tag {
+  padding: 3px 8px !important;
+  font-size: 9px !important;
+}
+
+html.mobile-view .project-body {
+  grid-template-columns: 1fr !important;
+  gap: 12px !important;
+}
+
+html.mobile-view .project-titles {
+  position: static !important;
+}
+
+html.mobile-view .project-num {
+  font-size: 10px !important;
+  padding: 2px 8px !important;
+}
+
+html.mobile-view .project-period {
+  font-size: 9px !important;
+}
+
+/* Strengths */
+html.mobile-view .strengths {
+  padding: 48px 0 !important;
+}
+
+html.mobile-view .strengths-grid {
+  grid-template-columns: 1fr !important;
+  gap: 10px !important;
+  margin-bottom: 36px !important;
+}
+
+html.mobile-view .strength-card {
+  padding: 16px 14px !important;
+}
+
+html.mobile-view .strength-card-num {
+  font-size: 11px !important;
+  margin-bottom: 8px !important;
+}
+
+html.mobile-view .strength-card-title {
+  font-size: 14px !important;
+  margin-bottom: 6px !important;
+}
+
+html.mobile-view .strength-card-desc {
+  font-size: 11px !important;
+}
+
+html.mobile-view .strengths-tech {
+  padding: 20px 18px !important;
+  margin-bottom: 36px !important;
+}
+
+html.mobile-view .strengths-tech-grid {
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 6px !important;
+}
+
+html.mobile-view .tech-item {
+  padding: 10px 12px !important;
+}
+
+html.mobile-view .tech-item-name {
+  font-size: 12px !important;
+}
+
+html.mobile-view .tech-item-tag {
+  font-size: 8px !important;
+}
+
+html.mobile-view .strengths-designs {
+  padding: 18px 16px !important;
+}
+
+html.mobile-view .strengths-design-item {
+  font-size: 12px !important;
+  padding: 5px 8px !important;
+}
+
+/* Honors */
+html.mobile-view .honors {
+  padding: 48px 0 !important;
+}
+
+html.mobile-view .honors-block {
+  margin-bottom: 36px !important;
+}
+
+html.mobile-view .honors-block-label {
+  font-size: 10px !important;
+  padding-bottom: 8px !important;
+}
+
+html.mobile-view .award {
+  padding: 14px 16px !important;
+  gap: 8px !important;
+  grid-template-columns: 1fr !important;
+}
+
+html.mobile-view .award:hover {
+  transform: none !important;
+}
+
+html.mobile-view .award-level {
+  font-size: 9px !important;
+  padding: 2px 8px !important;
+}
+
+html.mobile-view .award-date {
+  font-size: 10px !important;
+}
+
+html.mobile-view .award-title {
+  font-size: 14px !important;
+}
+
+html.mobile-view .award-sub {
+  font-size: 11px !important;
+}
+
+html.mobile-view .award-issuer {
+  font-size: 10px !important;
+}
+
+html.mobile-view .cert {
+  padding: 14px 16px !important;
+  gap: 10px !important;
+}
+
+html.mobile-view .cert-icon {
+  font-size: 18px !important;
+}
+
+html.mobile-view .cert-name {
+  font-size: 13px !important;
+}
+
+html.mobile-view .cert-issuer {
+  font-size: 10px !important;
+}
+
+html.mobile-view .cert-date,
+html.mobile-view .cert-score {
+  font-size: 9px !important;
+}
+
+html.mobile-view .innov {
+  padding: 20px 16px !important;
+}
+
+html.mobile-view .innov-badge {
+  font-size: 9px !important;
+  padding: 3px 10px !important;
+}
+
+html.mobile-view .innov-role {
+  font-size: 10px !important;
+}
+
+html.mobile-view .innov-title {
+  font-size: 16px !important;
+}
+
+html.mobile-view .innov-desc {
+  font-size: 12px !important;
+  line-height: 1.65 !important;
+  margin-bottom: 16px !important;
+}
+
+html.mobile-view .innov-meta {
+  flex-direction: column !important;
+  gap: 12px !important;
+  padding-top: 16px !important;
+}
+
+/* Thesis */
+html.mobile-view .thesis {
+  padding: 48px 0 !important;
+}
+
+html.mobile-view .thesis-header {
+  grid-template-columns: 1fr !important;
+  gap: 16px !important;
+  margin-bottom: 30px !important;
+}
+
+html.mobile-view .thesis-title {
+  font-size: clamp(18px, 5vw, 24px) !important;
+}
+
+html.mobile-view .thesis-title-en {
+  font-size: 11px !important;
+}
+
+html.mobile-view .thesis-keyword {
+  font-size: 9px !important;
+  padding: 3px 8px !important;
+}
+
+html.mobile-view .thesis-abstract {
+  padding: 16px 18px !important;
+  margin-bottom: 36px !important;
+}
+
+html.mobile-view .thesis-abstract p {
+  font-size: 12px !important;
+  line-height: 1.7 !important;
+}
+
+html.mobile-view .thesis-block {
+  margin-bottom: 30px !important;
+}
+
+html.mobile-view .thesis-block-title {
+  font-size: 14px !important;
+  margin-bottom: 16px !important;
+}
+
+html.mobile-view .thesis-features {
+  grid-template-columns: 1fr !important;
+  gap: 10px !important;
+}
+
+html.mobile-view .thesis-feature {
+  padding: 14px 16px !important;
+}
+
+html.mobile-view .thesis-feature-num {
+  font-size: 11px !important;
+}
+
+html.mobile-view .thesis-feature-title {
+  font-size: 13px !important;
+}
+
+html.mobile-view .thesis-feature-desc {
+  font-size: 11px !important;
+}
+
+html.mobile-view .thesis-tech {
+  gap: 6px !important;
+}
+
+html.mobile-view .thesis-tech-item {
+  padding: 8px 12px !important;
+  min-width: auto !important;
+  flex: 1 !important;
+}
+
+html.mobile-view .thesis-tech-name {
+  font-size: 12px !important;
+}
+
+html.mobile-view .thesis-tests {
+  grid-template-columns: 1fr !important;
+  gap: 6px !important;
+}
+
+html.mobile-view .thesis-test {
+  padding: 10px 14px !important;
+}
+
+html.mobile-view .thesis-test-name {
+  font-size: 11px !important;
+}
+
+html.mobile-view .thesis-test-result {
+  font-size: 10px !important;
+}
+
+/* Contact */
+html.mobile-view .contact {
+  min-height: auto !important;
+  padding: 48px 0 !important;
+}
+
+html.mobile-view .contact-inner {
+  padding: 48px 16px !important;
+}
+
+html.mobile-view .contact-title {
+  font-size: clamp(26px, 8vw, 40px) !important;
+  margin-bottom: 16px !important;
+}
+
+html.mobile-view .contact-sub {
+  font-size: 13px !important;
+  margin-bottom: 30px !important;
+}
+
+html.mobile-view .contact-info {
+  flex-direction: column !important;
+  gap: 14px !important;
+  padding: 14px 20px !important;
+  width: 100% !important;
+  max-width: 300px !important;
+}
+
+html.mobile-view .contact-info-item {
+  text-align: center !important;
+}
+
+html.mobile-view .contact-info-divider {
+  width: 100% !important;
+  height: 1px !important;
+}
+
+html.mobile-view .contact-socials {
+  margin-top: 24px !important;
+  gap: 8px !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  width: 100% !important;
+  max-width: 280px !important;
+}
+
+html.mobile-view .contact-social-btn {
+  width: 100% !important;
+  justify-content: center !important;
+  padding: 10px 14px !important;
+  font-size: 12px !important;
+}
+
+html.mobile-view .contact-footer .container {
+  flex-direction: column !important;
+  gap: 6px !important;
+  text-align: center !important;
+  font-size: 10px !important;
+}
+
+html.mobile-view .contact-eyebrow {
+  font-size: 9px !important;
+  padding: 4px 10px !important;
+}

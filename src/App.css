@@ -4,6 +4,74 @@
   background: var(--bg);
 }
 
+/* ============================================
+   VIEW TOGGLE BUTTON
+   ============================================ */
+.view-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-2);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.view-toggle:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.15);
+  transform: translateY(-1px);
+}
+
+.view-toggle-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  transition: all 0.25s ease;
+}
+
+.view-toggle-icon.is-mobile {
+  background: var(--grad);
+  color: #fff;
+}
+
+.view-toggle-icon.is-desktop {
+  background: var(--bg-3);
+  color: var(--text-2);
+}
+
+.view-toggle-text {
+  letter-spacing: 0.02em;
+}
+
+/* 小屏幕下隐藏文字只显示图标 */
+@media (max-width: 480px) {
+  .view-toggle {
+    padding: 10px;
+    bottom: 16px;
+    right: 16px;
+  }
+  
+  .view-toggle-text {
+    display: none;
+  }
+}
+
 .top-nav {
   position: sticky;
   top: 0;
