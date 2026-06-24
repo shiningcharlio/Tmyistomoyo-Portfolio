@@ -1,0 +1,90 @@
+.app {
+  width: 100%;
+  overflow-x: hidden;
+  background: var(--bg);
+}
+
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(252, 252, 253, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  gap: 4px;
+}
+
+.nav-tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 20px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.nav-tab:hover {
+  color: var(--accent);
+}
+
+.nav-tab.is-active {
+  border-bottom-color: var(--accent);
+}
+
+.nav-tab-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-3);
+}
+
+.nav-tab.is-active .nav-tab-num {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nav-tab-label {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-2);
+}
+
+.nav-tab.is-active .nav-tab-label {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.main-content {
+  min-height: 60vh;
+}
+
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 0 20px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .nav-tab {
+    padding: 14px 16px;
+    white-space: nowrap;
+  }
+  
+  .nav-tab-num {
+    display: none;
+  }
+}
