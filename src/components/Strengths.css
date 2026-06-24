@@ -274,6 +274,67 @@
   .strengths-designs-list { grid-template-columns: 1fr; }
 }
 
+@media (max-width: 768px) {
+  .strengths {
+    padding: 60px 0;
+  }
+  
+  .strengths-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 48px;
+  }
+  
+  .strength-card {
+    padding: 20px 18px;
+  }
+  
+  .strength-card-num {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+  
+  .strength-card-title {
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+  
+  .strength-card-desc {
+    font-size: 12px;
+  }
+  
+  .strengths-tech {
+    padding: 28px 24px;
+    margin-bottom: 48px;
+  }
+  
+  .strengths-tech-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  
+  .tech-item {
+    padding: 12px 14px;
+  }
+  
+  .tech-item-name {
+    font-size: 13px;
+  }
+  
+  .tech-item-tag {
+    font-size: 9px;
+  }
+  
+  .strengths-designs {
+    padding: 24px 20px;
+  }
+  
+  .strengths-design-item {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+}
+
 @media (max-width: 640px) {
   .strengths-grid { grid-template-columns: 1fr; }
   .strengths-tech-grid { grid-template-columns: 1fr; }

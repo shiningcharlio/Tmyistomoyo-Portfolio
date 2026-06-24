@@ -238,7 +238,76 @@
 }
 
 @media (max-width: 1024px) {
-  .about-grid { grid-template-columns: 1fr; gap: 48px; }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
   .about-left { position: static; }
   .about-stats { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 60px 0;
+  }
+  
+  .about-grid {
+    gap: 32px;
+  }
+  
+  .about-avatar {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 20px;
+  }
+  
+  .about-name {
+    font-size: 18px;
+  }
+  
+  .about-role {
+    font-size: 11px;
+  }
+  
+  .about-heading {
+    font-size: clamp(24px, 6vw, 32px);
+    margin-bottom: 24px;
+  }
+  
+  .about-bio p {
+    font-size: 14px;
+    line-height: 1.75;
+  }
+  
+  .about-skills {
+    gap: 6px;
+  }
+  
+  .about-skill {
+    padding: 6px 12px;
+    font-size: 11px;
+  }
+  
+  .about-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 60px;
+    padding-top: 40px;
+  }
+  
+  .about-stat-val {
+    font-size: 28px;
+  }
+  
+  .about-stat-label {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  
+  .about-stat-val {
+    font-size: 24px;
+  }
 }

@@ -315,3 +315,98 @@
   .award { grid-template-columns: 1fr; gap: 12px; }
   .innov { padding: 28px; }
 }
+
+@media (max-width: 768px) {
+  .honors {
+    padding: 60px 0;
+  }
+  
+  .honors-block {
+    margin-bottom: 48px;
+  }
+  
+  .honors-block-label {
+    font-size: 11px;
+    padding-bottom: 10px;
+  }
+  
+  .award {
+    padding: 18px 20px;
+    gap: 10px;
+  }
+  
+  .award:hover {
+    transform: translateX(0);
+  }
+  
+  .award-level {
+    font-size: 10px;
+    padding: 3px 10px;
+  }
+  
+  .award-date {
+    font-size: 11px;
+  }
+  
+  .award-title {
+    font-size: 15px;
+  }
+  
+  .award-sub {
+    font-size: 12px;
+  }
+  
+  .award-issuer {
+    font-size: 11px;
+  }
+  
+  .cert {
+    padding: 18px 20px;
+    gap: 12px;
+  }
+  
+  .cert-icon {
+    font-size: 20px;
+  }
+  
+  .cert-name {
+    font-size: 14px;
+  }
+  
+  .cert-issuer {
+    font-size: 11px;
+  }
+  
+  .cert-date, .cert-score {
+    font-size: 10px;
+  }
+  
+  .innov {
+    padding: 24px 20px;
+  }
+  
+  .innov-badge {
+    font-size: 10px;
+    padding: 4px 12px;
+  }
+  
+  .innov-role {
+    font-size: 11px;
+  }
+  
+  .innov-title {
+    font-size: 18px;
+  }
+  
+  .innov-desc {
+    font-size: 13px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+  
+  .innov-meta {
+    flex-direction: column;
+    gap: 16px;
+    padding-top: 20px;
+  }
+}

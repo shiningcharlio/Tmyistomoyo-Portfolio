@@ -184,6 +184,21 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .name-gradient:hover { color: transparent; }
 .name-gradient:hover::after { opacity: 1; }
 
+/* ============================================
+   MOBILE RESPONSIVE OPTIMIZATIONS
+   ============================================ */
+
 @media (max-width: 768px) {
-  .container { padding: 0 24px; }
+  .container { 
+    padding: 0 20px; 
+  }
+  
+  .section-heading {
+    font-size: clamp(26px, 7vw, 36px);
+    margin-bottom: 40px;
+  }
+  
+  .section-label {
+    margin-bottom: 16px;
+  }
 }

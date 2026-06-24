@@ -74,17 +74,36 @@
 
 @media (max-width: 768px) {
   .nav-container {
-    padding: 0 20px;
+    padding: 0 16px;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    gap: 2px;
   }
   
   .nav-tab {
-    padding: 14px 16px;
+    padding: 12px 14px;
     white-space: nowrap;
   }
   
   .nav-tab-num {
     display: none;
+  }
+  
+  .nav-tab-label {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-container {
+    padding: 0 12px;
+  }
+  
+  .nav-tab {
+    padding: 10px 12px;
+  }
+  
+  .nav-tab-label {
+    font-size: 11px;
   }
 }
