@@ -5,6 +5,7 @@ import Projects from './components/Projects'
 import Honors from './components/Honors'
 import Thesis from './components/Thesis'
 import Strengths from './components/Strengths'
+import Changelog from './components/Changelog'
 import Contact from './components/Contact'
 import './App.css'
 
@@ -25,7 +26,7 @@ function App() {
   const getInitialTab = () => {
     if (typeof window === 'undefined') return 'about'
     const hash = window.location.hash.replace('#', '')
-    const valid = ['about', 'projects', 'honors', 'thesis', 'strengths']
+    const valid = ['about', 'projects', 'honors', 'thesis', 'strengths', 'changelog']
     return valid.includes(hash) ? hash : 'about'
   }
   const [active, setActive] = useState(getInitialTab)
@@ -50,7 +51,7 @@ function App() {
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '')
-      const valid = ['about', 'projects', 'honors', 'thesis', 'strengths']
+      const valid = ['about', 'projects', 'honors', 'thesis', 'strengths', 'changelog']
       if (valid.includes(hash)) setActive(hash)
     }
     // 挂载时也检查一次（覆盖 useState 初始化后 hash 才解析的情况）
@@ -147,6 +148,7 @@ function App() {
     { id: 'honors', num: '03', label: 'Honors' },
     { id: 'thesis', num: '04', label: 'Thesis' },
     { id: 'strengths', num: '05', label: 'Strengths' },
+    { id: 'changelog', num: '06', label: 'Changelog' },
   ]
 
   const renderSection = () => {
@@ -156,6 +158,7 @@ function App() {
       case 'honors': return <Honors />
       case 'thesis': return <Thesis />
       case 'strengths': return <Strengths />
+      case 'changelog': return <Changelog />
       default: return <About />
     }
   }
