@@ -9,6 +9,19 @@ import Contact from './components/Contact'
 import './App.css'
 
 function App() {
+  const getInitialDark = () => {
+    if (typeof window === 'undefined') return false
+    const saved = localStorage.getItem('theme')
+    if (saved !== null) return saved === 'dark'
+    return window.matchMedia('(prefers-color-scheme: dark)').matches
+  }
+  const [isDark, setIsDark] = useState(getInitialDark)
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light')
+    localStorage.setItem('theme', String(isDark))
+  }, [isDark])
+
   const getInitialTab = () => {
     if (typeof window === 'undefined') return 'about'
     const hash = window.location.hash.replace('#', '')
@@ -183,7 +196,7 @@ function App() {
         <span className="view-toggle-text">{isMobile ? '移动版' : '桌面版'}</span>
       </button>
 
-      <Hero />
+      <Hero isDark={isDark} onToggleTheme={() => setIsDark(!isDark)} />
       
       <nav className="top-nav">
         <div className="nav-container">

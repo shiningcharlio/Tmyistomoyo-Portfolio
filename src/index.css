@@ -988,3 +988,105 @@ html.mobile-view .contact-eyebrow {
   font-size: 9px !important;
   padding: 4px 10px !important;
 }
+
+/* ============================================
+   DARK MODE — Variable Overrides
+   ============================================ */
+[data-theme="dark"] {
+  --bg:          #0A0B14;
+  --bg-2:        #0F1119;
+  --bg-3:        #161824;
+  --surface:     #12141F;
+  --text:        #E8E9F0;
+  --text-2:      #A0A3B8;
+  --text-3:      #6B6E85;
+  --text-4:      #3D4055;
+  --line:        rgba(255,255,255,0.06);
+  --line-2:      rgba(255,255,255,0.03);
+
+  --accent:      #A855F7;
+  --accent-2:    #F472B6;
+  --accent-3:    #22D3EE;
+  --accent-bg:   rgba(168,85,247,0.12);
+  --accent-text: #C4B5FD;
+  --neon-purple: #C4B5FD;
+  --neon-pink:   #F9A8D4;
+  --neon-cyan:   #67E8F9;
+  --neon-green:  #86EFAC;
+
+  --dark:        #12141F;
+  --dark-2:      #1A1C2E;
+  --dark-text:   #E8E9F0;
+  --dark-text-2: #A0A3B8;
+
+  --grad:        linear-gradient(135deg, #A855F7, #F472B6);
+  --grad-2:      linear-gradient(135deg, #A855F7, #6366F1, #22D3EE);
+  --grad-3:      linear-gradient(90deg, #C4B5FD, #F472B6, #67E8F9);
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+  --shadow:    0 4px 20px rgba(168,85,247,0.15);
+  --shadow-lg: 0 12px 40px rgba(168,85,247,0.2);
+  --glow-purple: 0 0 30px rgba(168,85,247,0.35);
+  --glow-pink:   0 0 30px rgba(244,114,182,0.35);
+  --glow-cyan:   0 0 30px rgba(34,211,238,0.35);
+}
+
+/* === Dark Mode Global Styles === */
+[data-theme="dark"] body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+[data-theme="dark"] .scroll-progress-bar {
+  background: linear-gradient(90deg, #A855F7, #F472B6, #22D3EE);
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.6);
+}
+
+[data-theme="dark"] .mouse-glow {
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, rgba(244, 114, 182, 0.08) 30%, transparent 60%);
+}
+
+[data-theme="dark"] ::selection {
+  background: rgba(168, 85, 247, 0.3);
+  color: #E8E9F0;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: var(--bg-3);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Dark mode nav-cta breathing animation */
+[data-theme="dark"] .nav-cta {
+  animation: cta-breathe-dark 3s ease-in-out infinite;
+}
+
+@keyframes cta-breathe-dark {
+  0%, 100% {
+    box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 25px rgba(168, 85, 247, 0.5);
+  }
+}
+
+/* Dark mode button hover enhancements */
+[data-theme="dark"] .hero-btn:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 12px 40px rgba(168, 85, 247, 0.5);
+  background-position: 100% 100%;
+}
+
+[data-theme="dark"] .hero-btn-ghost:hover {
+  background: rgba(168, 85, 247, 0.1);
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-3px);
+}

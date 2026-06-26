@@ -410,3 +410,76 @@
     padding-top: 20px;
   }
 }
+
+/* ============================================
+   DARK MODE — Honors Section
+   ============================================ */
+[data-theme="dark"] .honors {
+  background: var(--bg);
+}
+
+[data-theme="dark"] .honors::before {
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.06) 0%, transparent 70%);
+}
+
+[data-theme="dark"] .honors-block-label {
+  border-bottom-color: var(--line);
+}
+
+[data-theme="dark"] .award {
+  background: var(--surface);
+  border-color: var(--line);
+}
+
+[data-theme="dark"] .award:hover {
+  border-color: rgba(168, 85, 247, 0.3);
+  box-shadow: 0 8px 30px rgba(168, 85, 247, 0.15);
+}
+
+[data-theme="dark"] .award-level {
+  color: var(--accent);
+  background: var(--accent-bg);
+  border-color: rgba(168, 85, 247, 0.2);
+}
+
+[data-theme="dark"] .cert {
+  background: var(--surface);
+  border-color: var(--line);
+}
+
+[data-theme="dark"] .cert:hover {
+  border-color: rgba(168, 85, 247, 0.3);
+  box-shadow: 0 8px 30px rgba(168, 85, 247, 0.15);
+}
+
+[data-theme="dark"] .cert::after {
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.08) 0%, transparent 70%);
+}
+
+[data-theme="dark"] .cert:hover::after {
+  background: radial-gradient(circle, rgba(244, 114, 182, 0.1) 0%, transparent 70%);
+}
+
+[data-theme="dark"] .cert-score {
+  color: var(--accent);
+  background: var(--accent-bg);
+  border-color: rgba(168, 85, 247, 0.2);
+}
+
+[data-theme="dark"] .innov {
+  background: var(--surface);
+  border-color: var(--line);
+}
+
+[data-theme="dark"] .innov::after {
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.06) 0%, transparent 70%);
+}
+
+[data-theme="dark"] .innov-badge {
+  background: linear-gradient(135deg, #A855F7, #F472B6);
+  box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
+}
+
+[data-theme="dark"] .innov-meta {
+  border-top-color: var(--line);
+}
