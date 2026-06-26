@@ -33,7 +33,7 @@ const Thesis = () => {
   return (
     <section id="thesis" className="thesis">
       <div className="container">
-        <div className="thesis-header">
+        <div className="thesis-header reveal">
           <div className="thesis-header-left">
             <div className="thesis-badge">本科毕业设计</div>
             <h2 className="thesis-title">

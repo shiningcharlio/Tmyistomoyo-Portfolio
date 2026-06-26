@@ -41,7 +41,7 @@ const Strengths = () => {
   return (
     <section id="strengths" className="strengths">
       <div className="container">
-        <h2 className="section-heading">
+        <h2 className="section-heading reveal">
           不止于课本，<br />
           <span className="text-accent">更注重技术落地</span>。
         </h2>

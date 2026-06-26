@@ -6,7 +6,7 @@ const Contact = () => {
       <div className="contact-bg" />
       <div className="contact-grid" />
 
-      <div className="container contact-inner">
+      <div className="container contact-inner reveal">
         <div className="contact-eyebrow">
           <span className="contact-eyebrow-dot" />
           Open to opportunities

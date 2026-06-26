@@ -15,12 +15,13 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 16px;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(12px);
-  border: 1px solid var(--line);
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(124, 58, 237, 0.12);
   border-radius: 100px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.12);
   font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 600;
@@ -59,7 +60,7 @@
   letter-spacing: 0.02em;
 }
 
-/* 小屏幕下隐藏文字只显示图标 */
+/* 小屏幕下保持圆形风格 */
 @media (max-width: 480px) {
   .view-toggle {
     padding: 10px;
@@ -74,10 +75,11 @@
 
 .top-nav {
   position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(252, 252, 253, 0.95);
+  top: 64px;
+  z-index: 90;
+  background: rgba(252, 252, 253, 0.88);
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
 }
 

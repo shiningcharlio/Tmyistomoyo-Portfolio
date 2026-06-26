@@ -80,7 +80,7 @@
 }
 
 .contact-title-grad {
-  background: var(--grad);
+  background: linear-gradient(90deg, #7C3AED, #EC4899, #06B6D4);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -111,20 +111,30 @@
 
 .contact-info {
   display: flex;
-  align-items: center;
-  gap: 28px;
-  padding: 20px 32px;
+  align-items: stretch;
+  gap: 0;
+  padding: 0;
   border-radius: 16px;
-  background: var(--surface);
+  background: linear-gradient(135deg, rgba(124,58,237,0.04), rgba(236,72,153,0.03), rgba(6,182,212,0.02));
   border: 1px solid var(--line);
   box-shadow: 0 8px 30px rgba(124,58,237,0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  overflow: hidden;
 }
 
 .contact-info-item {
   display: flex;
   flex-direction: column;
-  gap: 3px;
-  text-align: left;
+  gap: 4px;
+  text-align: center;
+  flex: 1;
+  padding: 24px 20px;
+  transition: background 0.25s ease;
+}
+
+.contact-info-item:hover {
+  background: rgba(124, 58, 237, 0.04);
 }
 
 .contact-info-key {
@@ -149,7 +159,7 @@
 
 .contact-info-divider {
   width: 1px;
-  height: 28px;
+  align-self: stretch;
   background: var(--line);
 }
 
@@ -239,6 +249,13 @@
   content: ' */';
   color: var(--accent);
   opacity: 0.4;
+}
+
+.contact-footer .container span:last-child::after {
+  content: '_';
+  color: var(--accent);
+  animation: blink 1s step-end infinite;
+  margin-left: 2px;
 }
 
 @media (max-width: 768px) {

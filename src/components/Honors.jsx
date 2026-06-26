@@ -23,7 +23,7 @@ const Honors = () => {
   return (
     <section id="honors" className="honors">
       <div className="container">
-        <h2 className="section-heading">
+        <h2 className="section-heading reveal">
           专业能力，<br />
           <span className="text-accent">用成果说话</span>。
         </h2>

@@ -1,6 +1,9 @@
+import { useState } from 'react'
 import './Projects.css'
 
 const Projects = () => {
+  const [filter, setFilter] = useState('all')
+
   const projects = [
     {
       title: '全国大学生机器人竞赛',
@@ -9,6 +12,7 @@ const Projects = () => {
       tags: ['MATLAB', 'S7-1200 PLC', 'TIA Portal', 'Hardware'],
       period: '2023.05 — 2023.11',
       num: '01',
+      category: 'competition',
     },
     {
       title: '江苏省大学生机器人大赛',
@@ -17,6 +21,7 @@ const Projects = () => {
       tags: ['STM32', 'Keil', 'Embedded', 'Motor Control'],
       period: '2024.03 — 2024.05',
       num: '02',
+      category: 'competition',
     },
     {
       title: '输液监控预警守护者',
@@ -25,6 +30,7 @@ const Projects = () => {
       tags: ['PLC', 'Embedded', 'Sensors', 'IoT'],
       period: '2023 — 2024',
       num: '03',
+      category: 'competition',
     },
     {
       title: '全国大学生市场调查与分析大赛',
@@ -33,6 +39,7 @@ const Projects = () => {
       tags: ['Python', 'Data Analysis', 'Visualization'],
       period: '2023.11 — 2025.06',
       num: '04',
+      category: 'competition',
     },
     {
       title: '控制系统仿真系列实验',
@@ -41,6 +48,7 @@ const Projects = () => {
       tags: ['MATLAB', 'Simulink', 'PID', 'State Space', 'Root Locus', 'Bode'],
       period: '2024 — 2025',
       num: '05',
+      category: 'course',
     },
     {
       title: 'PMSM 直接转矩控制 MATLAB 仿真',
@@ -49,6 +57,7 @@ const Projects = () => {
       tags: ['MATLAB', 'Simulink', 'PMSM', 'DTC', 'S-Function', 'Power Systems'],
       period: '2025.10 — 2025.11',
       num: '06',
+      category: 'course',
     },
     {
       title: '数字电子技术系列实验',
@@ -57,6 +66,7 @@ const Projects = () => {
       tags: ['Multisim', 'Digital Logic', '555 Timer', 'Counter', 'FPGA'],
       period: '2024.02 — 2024.06',
       num: '07',
+      category: 'course',
     },
     {
       title: '电子工艺实习 — PCB 设计与仿真',
@@ -65,6 +75,7 @@ const Projects = () => {
       tags: ['Multisim', 'PCB Design', 'Op-Amp', 'Oscillator', 'Fabrication'],
       period: '2024.02 — 2024.06',
       num: '08',
+      category: 'course',
     },
     {
       title: '自动控制原理 — 系统建模与仿真实验',
@@ -73,6 +84,7 @@ const Projects = () => {
       tags: ['MATLAB', 'Simulink', 'PID', 'Closed-Loop', 'Stability'],
       period: '2024.09 — 2025.01',
       num: '09',
+      category: 'course',
     },
     {
       title: '电力电子技术 — 变流电路实验',
@@ -81,6 +93,7 @@ const Projects = () => {
       tags: ['Power Electronics', 'Rectifier', 'Chopper', 'Inverter', 'PWM'],
       period: '2024.09 — 2025.01',
       num: '10',
+      category: 'course',
     },
     {
       title: '电气控制与 PLC — 编程与应用实验',
@@ -89,6 +102,7 @@ const Projects = () => {
       tags: ['S7-1200', 'TIA Portal', 'Ladder Logic', 'Motor Control'],
       period: '2024.09 — 2025.01',
       num: '11',
+      category: 'course',
     },
     {
       title: '单片机原理及应用 — 嵌入式实验',
@@ -97,8 +111,19 @@ const Projects = () => {
       tags: ['51 MCU', 'Keil', 'C Language', 'Interrupt', 'ADC', 'UART'],
       period: '2024.02 — 2024.06',
       num: '12',
+      category: 'course',
     },
   ]
+
+  const filters = [
+    { id: 'all', label: '全部' },
+    { id: 'competition', label: '竞赛项目' },
+    { id: 'course', label: '课程实验' },
+  ]
+
+  const filtered = filter === 'all' ? projects : projects.filter((p) => p.category === filter)
+  const competitionProjects = filtered.filter((p) => p.category === 'competition')
+  const courseProjects = filtered.filter((p) => p.category === 'course')
 
   return (
     <section id="projects" className="projects">
@@ -108,28 +133,67 @@ const Projects = () => {
           完整的工程链路。
         </h2>
 
-        <div className="projects-list">
-          {projects.map((p) => (
-            <article key={p.num} className="project">
-              <div className="project-head">
-                <span className="project-num">{p.num}</span>
-                <span className="project-period">{p.period}</span>
-              </div>
-              <div className="project-body">
-                <div className="project-titles">
-                  <h3 className="project-title">{p.title}</h3>
-                  <span className="project-sub">{p.sub}</span>
+        {/* 分类筛选 */}
+        <div className="projects-filters">
+          {filters.map((f) => (
+            <button
+              key={f.id}
+              className={`project-filter-btn ${filter === f.id ? 'is-active' : ''}`}
+              onClick={() => setFilter(f.id)}
+            >
+              {f.label}
+            </button>
+          ))}
+        </div>
+
+        {/* 竞赛项目 — 大卡片 */}
+        {competitionProjects.length > 0 && (
+          <div className="projects-cards">
+            {competitionProjects.map((p) => (
+              <article key={p.num} className="project-card">
+                <div className="project-card-head">
+                  <span className="project-card-num">{p.num}</span>
+                  <span className="project-card-period">{p.period}</span>
                 </div>
-                <div className="project-detail">
-                  <p className="project-desc">{p.desc}</p>
-                  <div className="project-tags">
+                <div className="project-card-body">
+                  <h3 className="project-card-title">{p.title}</h3>
+                  <span className="project-card-sub">{p.sub}</span>
+                  <p className="project-card-desc">{p.desc}</p>
+                  <div className="project-card-tags">
                     {p.tags.map((t) => <span key={t} className="project-tag">{t}</span>)}
                   </div>
                 </div>
-              </div>
-            </article>
-          ))}
-        </div>
+              </article>
+            ))}
+          </div>
+        )}
+
+        {/* 课程实验 — 紧凑列表 */}
+        {courseProjects.length > 0 && (
+          <div className="projects-compact-list">
+            <div className="projects-compact-label">课程实验</div>
+            {courseProjects.map((p) => (
+              <article key={p.num} className="project-compact">
+                <div className="project-compact-head">
+                  <span className="project-compact-num">{p.num}</span>
+                  <span className="project-compact-period">{p.period}</span>
+                </div>
+                <div className="project-compact-body">
+                  <div className="project-compact-titles">
+                    <h3 className="project-compact-title">{p.title}</h3>
+                    <span className="project-compact-sub">{p.sub}</span>
+                  </div>
+                  <div className="project-compact-detail">
+                    <p className="project-compact-desc">{p.desc}</p>
+                    <div className="project-tags">
+                      {p.tags.map((t) => <span key={t} className="project-tag">{t}</span>)}
+                    </div>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   )

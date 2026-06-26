@@ -33,12 +33,13 @@
   border-radius: 20px;
   overflow: hidden;
   margin-bottom: 28px;
-  border: 2px solid transparent;
-  background: linear-gradient(var(--surface), var(--surface)) padding-box,
-              linear-gradient(135deg, #7C3AED, #EC4899, #06B6D4) border-box;
-  box-shadow: 0 8px 30px rgba(124,58,237,0.15);
+  border: 3px solid #fff;
+  background: linear-gradient(135deg, #7C3AED, #EC4899, #06B6D4);
+  box-shadow: 0 8px 30px rgba(124,58,237,0.15),
+              0 0 0 1px rgba(124,58,237,0.1);
   position: relative;
   transition: all 0.3s ease;
+  padding: 3px;
 }
 
 .about-avatar:hover {
@@ -50,6 +51,7 @@
   width: 100%; height: 100%;
   object-fit: cover;
   transition: filter 0.4s ease;
+  border-radius: 17px;
 }
 
 .about-avatar::after {
@@ -61,10 +63,14 @@
   font-size: 9px;
   font-weight: 700;
   color: #fff;
-  background: linear-gradient(135deg, #7C3AED, #EC4899);
+  background: rgba(26, 27, 46, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   padding: 2px 8px;
   border-radius: 6px;
   letter-spacing: 0.05em;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  border: 1px solid rgba(255,255,255,0.15);
 }
 
 .about-id { margin-bottom: 28px; }
@@ -88,6 +94,13 @@
   color: var(--accent);
 }
 
+.about-role::after {
+  content: '_';
+  color: var(--accent);
+  animation: blink 1s step-end infinite;
+  margin-left: 2px;
+}
+
 .about-meta {
   display: flex;
   flex-direction: column;
@@ -109,13 +122,17 @@
   color: var(--text-3);
   letter-spacing: 0.06em;
   text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
 }
 
-.about-meta-key::before {
-  content: '// ';
+.about-meta-icon {
   color: var(--accent-2);
-  opacity: 0.6;
+  opacity: 0.7;
 }
+
+/* meta key prefix removed — SVG icon replaces it */
 
 .about-meta-val {
   font-size: 13px;
@@ -190,6 +207,33 @@
   opacity: 0.7;
 }
 
+/* Skill Groups */
+.about-skills-grouped {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-skill-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.about-skill-group-title {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-3);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.about-skill-group-title::before {
+  content: '▸ ';
+  color: var(--accent);
+}
+
 /* Stats */
 .about-stats {
   display: grid;
@@ -213,7 +257,7 @@
 }
 
 .about-stat-val {
-  font-family: var(--font-display);
+  font-family: var(--font-mono);
   font-size: 36px;
   font-weight: 700;
   letter-spacing: -0.03em;

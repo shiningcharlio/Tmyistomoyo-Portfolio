@@ -159,6 +159,161 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 ::selection { background: var(--accent); color: #fff; }
 
+/* ============================================
+   SCROLL PROGRESS BAR
+   ============================================ */
+.scroll-progress-track {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 9998;
+  background: transparent;
+  pointer-events: none;
+}
+
+.scroll-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #7C3AED, #EC4899, #06B6D4);
+  border-radius: 0 2px 2px 0;
+  transition: width 0.1s ease-out;
+  box-shadow: 0 0 8px rgba(124, 58, 237, 0.4);
+}
+
+/* ============================================
+   MOUSE GLOW
+   ============================================ */
+.mouse-glow {
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.08) 0%, rgba(236, 72, 153, 0.04) 30%, transparent 60%);
+  pointer-events: none;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  left: -9999px;
+  top: -9999px;
+  transition: opacity 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .mouse-glow { display: none; }
+}
+
+/* ============================================
+   REVEAL ANIMATIONS
+   ============================================ */
+.section-fade {
+  animation: sectionFadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+@keyframes sectionFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-stagger.is-visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-stagger.is-visible > *:nth-child(1) { transition-delay: 0ms; }
+.reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 60ms; }
+.reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 120ms; }
+.reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 180ms; }
+.reveal-stagger.is-visible > *:nth-child(5) { transition-delay: 240ms; }
+.reveal-stagger.is-visible > *:nth-child(6) { transition-delay: 300ms; }
+.reveal-stagger.is-visible > *:nth-child(7) { transition-delay: 360ms; }
+.reveal-stagger.is-visible > *:nth-child(8) { transition-delay: 420ms; }
+.reveal-stagger.is-visible > *:nth-child(n+9) { transition-delay: 480ms; }
+
+/* ============================================
+   BLINK CURSOR ANIMATION
+   ============================================ */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* ============================================
+   BUTTON HOVER ENHANCEMENTS
+   ============================================ */
+
+/* 主按钮 hover: scale + 阴影变深 + 渐变角度旋转 */
+.hero-btn {
+  background-size: 200% 200%;
+  background-position: 0% 0%;
+}
+.hero-btn:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 12px 40px rgba(124, 58, 237, 0.5);
+  background-position: 100% 100%;
+}
+.hero-btn:active {
+  transform: translateY(-1px) scale(0.97);
+}
+
+/* 次按钮 hover: 背景填充主色10% + 边框加深 */
+.hero-btn-ghost:hover {
+  background: rgba(124, 58, 237, 0.1);
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-3px);
+}
+.hero-btn-ghost:active {
+  transform: scale(0.97);
+}
+
+.hero-btn-bili:hover {
+  transform: translateY(-3px) scale(1.04);
+}
+.hero-btn-bili:active {
+  transform: scale(0.97);
+}
+
+/* nav-cta active */
+.nav-cta:active {
+  transform: scale(0.97);
+}
+
+/* ============================================
+   NAV-CTA BREATHING ANIMATION
+   ============================================ */
+.nav-cta {
+  animation: cta-breathe 3s ease-in-out infinite;
+}
+
+@keyframes cta-breathe {
+  0%, 100% {
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 25px rgba(124, 58, 237, 0.5);
+  }
+}
+
 /* === Name Gradient Hover === */
 .name-gradient {
   position: relative;
@@ -386,6 +541,14 @@ html.mobile-view .about-skill {
   font-size: 10px !important;
 }
 
+html.mobile-view .about-skill-group-title {
+  font-size: 9px !important;
+}
+
+html.mobile-view .about-skills-grouped {
+  gap: 14px !important;
+}
+
 html.mobile-view .about-stats {
   grid-template-columns: repeat(2, 1fr) !important;
   gap: 14px !important;
@@ -406,58 +569,106 @@ html.mobile-view .projects {
   padding: 48px 0 !important;
 }
 
-html.mobile-view .project {
-  padding: 24px 0 !important;
+html.mobile-view .projects-filters {
+  gap: 4px !important;
+  margin-bottom: 24px !important;
 }
 
-html.mobile-view .project:hover {
+html.mobile-view .project-filter-btn {
+  padding: 6px 14px !important;
+  font-size: 10px !important;
+}
+
+html.mobile-view .projects-cards {
+  grid-template-columns: 1fr !important;
+  gap: 12px !important;
+  margin-bottom: 32px !important;
+}
+
+html.mobile-view .project-card {
+  padding: 16px !important;
+}
+
+html.mobile-view .project-card-title {
+  font-size: 16px !important;
+}
+
+html.mobile-view .project-card-sub {
+  font-size: 9px !important;
+}
+
+html.mobile-view .project-card-desc {
+  font-size: 12px !important;
+  line-height: 1.65 !important;
+}
+
+html.mobile-view .project-card-num {
+  font-size: 10px !important;
+  padding: 2px 8px !important;
+}
+
+html.mobile-view .project-card-period {
+  font-size: 9px !important;
+}
+
+html.mobile-view .projects-compact-label {
+  font-size: 10px !important;
+  margin-bottom: 16px !important;
+}
+
+html.mobile-view .project-compact {
+  padding: 20px 0 !important;
+}
+
+html.mobile-view .project-compact:hover {
   padding-left: 0 !important;
 }
 
-html.mobile-view .project-head {
+html.mobile-view .project-compact-head {
   flex-direction: column !important;
   align-items: flex-start !important;
   gap: 6px !important;
   margin-bottom: 14px !important;
 }
 
-html.mobile-view .project-title {
-  font-size: 16px !important;
+html.mobile-view .project-compact-title {
+  font-size: 14px !important;
 }
 
-html.mobile-view .project-sub {
+html.mobile-view .project-compact-sub {
   font-size: 9px !important;
 }
 
-html.mobile-view .project-desc {
-  font-size: 12px !important;
-  line-height: 1.65 !important;
+html.mobile-view .project-compact-desc {
+  font-size: 11px !important;
+  line-height: 1.6 !important;
 }
 
-html.mobile-view .project-tags {
+html.mobile-view .project-compact-tags {
   gap: 4px !important;
 }
 
 html.mobile-view .project-tag {
   padding: 3px 8px !important;
   font-size: 9px !important;
+  height: 22px !important;
 }
 
-html.mobile-view .project-body {
+html.mobile-view .project-compact-body {
   grid-template-columns: 1fr !important;
   gap: 12px !important;
 }
 
-html.mobile-view .project-titles {
+html.mobile-view .project-compact-titles {
   position: static !important;
 }
 
-html.mobile-view .project-num {
+html.mobile-view .project-compact-num {
   font-size: 10px !important;
   padding: 2px 8px !important;
 }
 
-html.mobile-view .project-period {
+html.mobile-view .project-compact-period {
   font-size: 9px !important;
 }
 
@@ -734,14 +945,15 @@ html.mobile-view .contact-sub {
 
 html.mobile-view .contact-info {
   flex-direction: column !important;
-  gap: 14px !important;
-  padding: 14px 20px !important;
+  gap: 0 !important;
+  padding: 0 !important;
   width: 100% !important;
   max-width: 300px !important;
 }
 
 html.mobile-view .contact-info-item {
   text-align: center !important;
+  padding: 16px 20px !important;
 }
 
 html.mobile-view .contact-info-divider {

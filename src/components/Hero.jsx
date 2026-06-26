@@ -6,18 +6,18 @@ const Hero = () => {
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 40)
+    const handleScroll = () => setScrolled(window.scrollY > 100)
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   // Generate floating particles
-  const particles = Array.from({ length: 6 }, (_, i) => ({
+  const particles = Array.from({ length: 20 }, (_, i) => ({
     id: i,
-    left: `${15 + i * 15}%`,
-    top: `${20 + (i % 3) * 25}%`,
-    delay: `${i * 2}s`,
-    duration: `${12 + i * 2}s`,
+    left: `${5 + (i * 4.5) % 90}%`,
+    top: `${10 + (i * 17) % 70}%`,
+    delay: `${(i * 0.8) % 10}s`,
+    duration: `${10 + (i % 5) * 3}s`,
   }))
 
   return (
