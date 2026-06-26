@@ -714,7 +714,6 @@
   background: linear-gradient(to bottom, #F472B6, #A855F7);
 }
 
-[data-theme="dark"] .hero-signature-watermark img {
-  opacity: 0.06;
-  filter: blur(1px) brightness(1.5);
+[data-theme="dark"] .hero-signature-watermark {
+  display: none;
 }
